@@ -59,18 +59,18 @@ function constructResponse(query) {
     } else if (query.includes("work") && query.include("how") || query.includes("what are you")) {
 		return "You can ask for me directions or tell me where you want to go. I can call the elevators for you.";
 	} else if (query.includes("time") && query.includes("date")) {
-		const date = Date.now();  
-		var date_str = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
-		var time_str = date.toLocaleTimeString("en-us");
+		const now = new Date(); 
+		var date_str = now.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
+		var time_str = now.toLocaleTimeString("en-us");
 		return "Today is " + date_str + ". It is " + time_str + ". How else can I help you?";				
 	}
 	else if (query.includes("date")) {
-		const date = Date.now();  
-		var date_str = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
+		const now = new Date();
+		var date_str = now.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
 		return "Today is " + date_str + ". How else can I help you?";	
 	} else if (query.includes("time")) {
-		const date = Date.now();  
-		return "It is " + date.toLocaleTimeString("en-us") + ". Is there anything else I can do for you?";
+		const now = new Date();  
+		return "It is " + now.toLocaleTimeString("en-us") + ". Is there anything else I can do for you?";
 	} else {
 		return ""
 	}
