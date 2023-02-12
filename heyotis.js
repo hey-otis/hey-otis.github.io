@@ -59,11 +59,11 @@ function constructResponse(query) {
     } else if (query.includes("work") && query.include("how") || query.includes("what are you")) {
 		return "You can ask for me directions or tell me where you want to go. I can call the elevators for you.";
 	} else if (query.includes("date")) {
-		const date = new Date.now();  
+		const date = Date.now();  
 		var date_str = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
 		return "Today is " + date_str + ". How else can I help you?";	
 	} else if (query.includes("time")) {
-		const date = new Date.now();  
+		const date = Date.now();  
 		return "It is " + date.toLocaleTimeString() + ". Is there anything else I can do for you?";
 	}
 }
