@@ -1,2 +1,2 @@
-# hey-otis.github.io
-website demo for hey otis
+# OTISHackathon2023
+The OTIS Hackathon event
