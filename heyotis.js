@@ -61,7 +61,7 @@ function constructResponse(query) {
 	} else if (query.includes("time") && query.includes("date")) {
 		const now = new Date(); 
 		var date_str = now.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
-		var time_str = now.toLocaleTimeString("en-us");
+		var time_str = now.getHours() + ":" + String(now.getMinutes()).padStart(2, "0");
 		return "Today is " + date_str + ". It is " + time_str + ". How else can I help you?";				
 	}
 	else if (query.includes("date")) {
@@ -69,8 +69,9 @@ function constructResponse(query) {
 		var date_str = now.toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
 		return "Today is " + date_str + ". How else can I help you?";	
 	} else if (query.includes("time")) {
-		const now = new Date();  
-		return "It is " + now.toLocaleTimeString("en-us") + ". Is there anything else I can do for you?";
+		const now = new Date(); 
+		var time_str = now.getHours() + ":" + String(now.getMinutes()).padStart(2, "0");
+		return "It is " + time_str + ". Is there anything else I can do for you?";
 	} else {
 		return ""
 	}
