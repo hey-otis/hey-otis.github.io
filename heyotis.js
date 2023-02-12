@@ -50,15 +50,22 @@ function processFinalTranscript(transcript) {
 
 function constructResponse(query) {
     query = query.toLowerCase();
-    if (query.includes("directions") && query.includes("food") || query.includes("court")) {
-        return "Take the elevator to floor 2 when it arrives. " +
-            "When you exit the elevator, turn left and walk straight. " +
-            "You will see the food court on your right."		
-		console.log("built response");
-			
-    } else {
-        return ""
-    }
+    if (query.includes("directions") && query.includes("cafeteria") || query.includes("food")) {
+        return "Board the left-most elevator when it arrives. " +
+			   "Exit on floor 2. " + "When you exit the elevator, turn left and walk straight. " +
+            "You will see the cafeteria on your right."		
+    } else if (query.includes("bathroom") || query.includes("restroom") {
+        return "Board the center elevator once it arrives. Exit on the third floor and take a left."
+    } else if (query.includes("work") && query.include("how") || query.includes("what are you") {
+		return "You can ask for me directions or tell me where you want to go. I can call the elevators for you."
+	} else if (query.includes("date")) {
+		const date = new Date.now();  
+		var date_str = new Date().toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"}) 
+		return "Today is " + date_str + ". How else can I help you?"		
+	} else if (query.includes("time")) {
+		const date = new Date.now();  
+		return "It is " + date.toLocaleTimeString() + "."
+	}
 }
 
 function speakResponse(response) {
@@ -76,44 +83,7 @@ function setTranscriptOutput(interim, response) {
 if ("webkitSpeechRecognition" in window) {
 	
 	
-	var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
-/* 	const recognition = new SpeechRecognition();
-
-	// This runs when the speech recognition service starts
-	recognition.onstart = function () {
-		
-	};
-
-	// stop listening the speech recognition
-	recognition.onspeechend = function () {
-		//recognition.stop();
-	}
-	  
-    let speechRecognition = new webkitSpeechRecognition();
-    let final_transcript = "";
-
-    speechRecognition.interimResults = true;
-	speechRecognition.continuous = true;
-
-    speechRecognition.onresult = (event) => {
-        let interim_transcript = "";
-
-        for (let i = event.resultIndex; i < event.results.length; ++i) {
-            if (event.results[i].isFinal) {
-                final_transcript += event.results[i][0].transcript;
-            } else {
-                interim_transcript += event.results[i][0].transcript;
-
-            }
-        }
-
-        processFinalTranscript(final_transcript);
-		console.log("Final:", final_transcript)
-		console.log("Interim:", interim_transcript);
-		document.querySelector("#interim").innerHTML = interim_transcript;
-	
-    } */
-	
+  var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
   var recognition = new SpeechRecognition();
 
   // This runs when the speech recognition service starts
